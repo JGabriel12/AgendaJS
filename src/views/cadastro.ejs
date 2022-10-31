@@ -6,7 +6,7 @@
     <div class="col-lg-8 my-3">
       <h1 class="text-center">Cadastro</h1>
       <p class="text-center lead">Crie sua conta abaixo</p>
-
+      <%- include('includes/messages') -%>
       <div class="row">
         <div class="col-lg">
           <h4>Cadastrar</h4>
@@ -37,6 +37,9 @@
                 name="password"
                 placeholder="user123"
               />
+              <small id="emailHelp" class="form-text text-muted"
+                >A senha precisa ter de 3 a 50 caracteres.</small
+              >
             </div>
 
             <div class="text-center">
