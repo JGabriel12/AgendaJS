@@ -23,6 +23,7 @@ const routes = require('./routes')
 const path = require('path')
 const helmet = require('helmet')
 const csrf = require('csurf')
+
 // Middlewares
 const {
   middlewareGlobal,
@@ -44,13 +45,14 @@ app.use(express.static(path.resolve(__dirname, 'public')))
 // Cookies/sessions
 const sessionOptions = session({
   secret: 'ablabluble',
-  store: MongoStore.create({ mongoUrl: process.env.CONNECTIONSTRING }),
+  //store: new MongoStore({ mongooseConnection: mongoose.connection }),
   resave: false,
   saveUninitialized: false,
   cookie: {
     maxAge: 1000 * 60 * 60 * 24 * 7,
     httpOnly: true
-  }
+  },
+  store: MongoStore.create({ mongoUrl: process.env.CONNECTIONSTRING })
 })
 
 app.use(sessionOptions)
