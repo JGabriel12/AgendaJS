@@ -12,6 +12,7 @@
           <h4>Login</h4>
 
           <form action="/login/register" method="POST">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
             <div class="form-group">
               <label for="email">Email:</label>
               <input
